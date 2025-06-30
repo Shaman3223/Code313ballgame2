@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bli5p5c3e6ncw"]
+
+[ext_resource type="Script" uid="uid://csv85rgmvptkg" path="res://player.gd" id="1_ay1nd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2xsoq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs0nw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gxesm"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7e3t1"]
+size = Vector3(20, 1, 20)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95121, 0)
+script = ExtResource("1_ay1nd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_2xsoq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_hs0nw")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.903732, -0.428099, 0, 0.428099, 0.903732, 0, 0, -0.564889)
+doppler_tracking = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_gxesm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7e3t1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.918998, 0.394263, 0, -0.394263, 0.918998, 0, 6.91621, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.219311, 0.44297, -0.869298, -0.0663644, 0.895699, 0.439681, 0.973395, -0.0387365, 0.225834, -12.8561, 6.11143, 0)
+current = true
