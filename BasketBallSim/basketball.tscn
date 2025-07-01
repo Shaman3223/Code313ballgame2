@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://busartyq1qob3"]
 
-[ext_resource type="Script" path="res://basketball.gd" id="1_512qa"]
+[ext_resource type="Script" uid="uid://dhugc3ohj63kl" path="res://basketball.gd" id="1_512qa"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_5r313"]
 
@@ -8,6 +8,7 @@
 
 [node name="RigidBody3D" type="RigidBody3D"]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_512qa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

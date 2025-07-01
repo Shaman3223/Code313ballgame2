@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bli5p5c3e6ncw"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_ay1nd"]
+[ext_resource type="Script" uid="uid://csv85rgmvptkg" path="res://player.gd" id="1_ay1nd"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2xsoq"]
 
@@ -41,3 +41,20 @@ shape = SubResource("BoxShape3D_7e3t1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.918998, 0.394263, 0, -0.394263, 0.918998, 0, 6.91621, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12725, 2.16266, 0)
+layers = 3
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(1, 5.32532, 1)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73475, 4.24514, 0)
+layers = 3
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+inner_radius = 0.969
+outer_radius = 2.024

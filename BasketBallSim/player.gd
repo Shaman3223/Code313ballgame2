@@ -19,7 +19,10 @@ const BASE_FOV = 75.0
 const SPRINT_FOV = 90.0
 const FOV_CHANGE_SPEED = 5.0
 
+
+
 var is_moving
+var is_mouse: bool = true
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -31,6 +34,13 @@ func _ready():
 	joy_input = Vector2.ZERO
 	t_bob = 0.0
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func toggleMouseCapture():
+	is_mouse = !is_mouse
+	if is_mouse:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -64,6 +74,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y = velocity.y - (FALL_SPEED * delta)
 
+	if Input.is_action_just_pressed("ui_cancel"):
+		toggleMouseCapture()
+	
+	if Input.is_action_just_pressed("shootball"):
+		shootball()
+	
 	if Input.is_action_pressed("sprint"):
 		speed = SPRINT_SPEED
 		camera.fov = lerp(camera.fov, SPRINT_FOV, FOV_CHANGE_SPEED * delta)
@@ -99,3 +115,18 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func shootball():
+	var ball = load("res://basketball.tscn").instantiate()
+	
+	get_parent().add_child(ball)
+	
+	ball.position = position
+	ball.position.y += 3
+	
+	var head = get_node("Head")
+	
+	var x = -sin(head.rotation.y) * WALK_SPEED
+	var y = -cos(head.rotation.y) * WALK_SPEED
+	
+	ball.shoot(x,y,3.0,0.0,2.0)

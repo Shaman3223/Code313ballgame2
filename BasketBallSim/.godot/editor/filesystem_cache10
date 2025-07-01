@@ -1,0 +1,7 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1751380691
+basketball.gd::GDScript/GDScript::7692240877783525943::1751304347::0::1::::<>RigidBody3D<><>0<>0<><>::
+basketball.tscn::PackedScene::3827387750304523286::1751326290::0::1::::<><><>0<>0<><>::uid://dhugc3ohj63kl::::res://basketball.gd
+icon.svg::CompressedTexture2D/CompressedTexture2D::2709815497382411494::1751304201::1751305718::1::::<><><>0<>0<>0aaa67b03cc1a8ef0cf6d4480447fcdb<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+main.tscn::PackedScene::3176862862504386758::1751326290::0::1::::<><><>0<>0<><>::uid://csv85rgmvptkg::::res://player.gd
+player.gd::GDScript::6081650623024159470::1751307261::0::1::::<>CharacterBody3D<><>0<>0<><>::
